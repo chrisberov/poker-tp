@@ -24,11 +24,7 @@ public class MainClass {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J",   // 0-12
 						"Q", "K", "A"};
 	
-	static String deck[] = {"C2", "D2", "H2", "S2", "C3", "D3", "H3", "S3", "C4", "D4", "H4", "S4",
-							"C5", "D5", "H5", "S5", "C6", "D6", "H6", "S6", "C7", "D7", "H7", "S7",
-							"C8", "D8", "H8", "S8", "C9", "D9", "H9", "S9", "C10", "D10", "H10", "S10",
-							"CJ", "DJ", "HJ", "SJ", "CQ", "DQ", "HQ", "SQ", "CK", "DK", "HK", "SK",
-							"CA", "DA", "HA", "SA"}; // 0-51
+	 
 	
 	public static void main(String[] args) {		
 	/*	deck[0] = "C2";	    deck[1] = "D2";    deck[2] = "H2";    deck[3] = "S2";
@@ -108,86 +104,9 @@ public class MainClass {
 		frame.setLocationRelativeTo(null);
 		
 	}
-	
-	public void GetDeck() {
-		  Image C2 = new ImageIcon("D:/poker-tp/2C.jpeg").getImage();
-		  Image D2 = new ImageIcon("D:/poker-tp/2D.jpeg").getImage();
-		  Image H2 = new ImageIcon("D:/poker-tp/2H.jpeg").getImage();
-		  Image S2 = new ImageIcon("D:/poker-tp/2S.jpeg").getImage();
-		  
-		  Image C3 = new ImageIcon("D:/poker-tp/3C.jpeg").getImage();
-		  Image D3 = new ImageIcon("D:/poker-tp/3D.jpeg").getImage();
-		  Image H3 = new ImageIcon("D:/poker-tp/3H.jpeg").getImage();
-		  Image S3 = new ImageIcon("D:/poker-tp/3S.jpeg").getImage();
-		  
-		  Image C4 = new ImageIcon("D:/poker-tp/4C.jpeg").getImage();
-		  Image D4 = new ImageIcon("D:/poker-tp/4D.jpeg").getImage();
-		  Image H4 = new ImageIcon("D:/poker-tp/4H.jpeg").getImage();
-		  Image S4 = new ImageIcon("D:/poker-tp/4S.jpeg").getImage();
-		  
-		  Image C5 = new ImageIcon("D:/poker-tp/5C.jpeg").getImage();
-		  Image D5 = new ImageIcon("D:/poker-tp/5D.jpeg").getImage();
-		  Image H5 = new ImageIcon("D:/poker-tp/5H.jpeg").getImage();
-		  Image S5 = new ImageIcon("D:/poker-tp/5S.jpeg").getImage();
-		  
-		  Image C6 = new ImageIcon("D:/poker-tp/6C.jpeg").getImage();
-		  Image D6 = new ImageIcon("D:/poker-tp/6D.jpeg").getImage();
-		  Image H6 = new ImageIcon("D:/poker-tp/6H.jpeg").getImage();
-		  Image S6 = new ImageIcon("D:/poker-tp/6S.jpeg").getImage();
-		  
-		  Image C7 = new ImageIcon("D:/poker-tp/7C.jpeg").getImage();
-		  Image D7 = new ImageIcon("D:/poker-tp/7D.jpeg").getImage();
-		  Image H7 = new ImageIcon("D:/poker-tp/7H.jpeg").getImage();
-		  Image S7 = new ImageIcon("D:/poker-tp/7S.jpeg").getImage();
-		  
-		  Image C8 = new ImageIcon("D:/poker-tp/8C.jpeg").getImage();
-		  Image D8 = new ImageIcon("D:/poker-tp/8D.jpeg").getImage();
-		  Image H8 = new ImageIcon("D:/poker-tp/8H.jpeg").getImage();
-		  Image S8 = new ImageIcon("D:/poker-tp/8S.jpeg").getImage();
-		  
-		  Image C9 = new ImageIcon("D:/poker-tp/9C.jpeg").getImage();
-		  Image D9 = new ImageIcon("D:/poker-tp/9D.jpeg").getImage();
-		  Image H9 = new ImageIcon("D:/poker-tp/9H.jpeg").getImage();
-		  Image S9 = new ImageIcon("D:/poker-tp/9S.jpeg").getImage();
-		  
-		  Image C10 = new ImageIcon("D:/poker-tp/10C.jpeg").getImage();
-		  Image D10 = new ImageIcon("D:/poker-tp/10D.jpeg").getImage();
-		  Image H10 = new ImageIcon("D:/poker-tp/10H.jpeg").getImage();
-		  Image S10 = new ImageIcon("D:/poker-tp/10S.jpeg").getImage();
-		  
-		  Image CJ = new ImageIcon("D:/poker-tp/JC.jpeg").getImage();
-		  Image DJ = new ImageIcon("D:/poker-tp/JD.jpeg").getImage();
-		  Image HJ = new ImageIcon("D:/poker-tp/JH.jpeg").getImage();
-		  Image SJ = new ImageIcon("D:/poker-tp/JS.jpeg").getImage();
-		  
-		  Image CQ = new ImageIcon("D:/poker-tp/QC.jpeg").getImage();
-		  Image DQ = new ImageIcon("D:/poker-tp/QD.jpeg").getImage();
-		  Image HQ = new ImageIcon("D:/poker-tp/QH.jpeg").getImage();
-		  Image SQ = new ImageIcon("D:/poker-tp/QS.jpeg").getImage();
-		  
-		  Image CK = new ImageIcon("D:/poker-tp/KC.jpeg").getImage();
-		  Image DK = new ImageIcon("D:/poker-tp/KD.jpeg").getImage();
-		  Image HK = new ImageIcon("D:/poker-tp/KH.jpeg").getImage();
-		  Image SK = new ImageIcon("D:/poker-tp/KS.jpeg").getImage();
-		  
-		  Image CA = new ImageIcon("D:/poker-tp/AC.jpeg").getImage();
-		  Image DA = new ImageIcon("D:/poker-tp/AD.jpeg").getImage();
-		  Image HA = new ImageIcon("D:/poker-tp/AH.jpeg").getImage();
-		  Image SA = new ImageIcon("D:/poker-tp/AS.jpeg").getImage();
-		  
-		  Image backside = new ImageIcon("D:/poker-tp/backside.png").getImage();
 		  		
-	  }
 	  
-	  public void RandomizeCard1() {
-		  Random generator = new Random();
-		  int randomizedcard1 = generator.nextInt(51);
-	  }
-	  
-	  public void RandomizeCard2() {
-		  Random generator = new Random();
-		  int randomizedcard2 = generator.nextInt(51); 
-		}
+
 	
 }
 	

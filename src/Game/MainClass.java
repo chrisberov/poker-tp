@@ -95,14 +95,52 @@ public class MainClass {
     
 	
 	public static void GameWindow() {
+		
+		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/poker-table.png").getImage());
 		JFrame frame = new JFrame("Poker");
-		frame.add(new Board());
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			
+		
+		JButton check = new JButton("CHECK");
+	    check.setBounds(850, 550, 65, 20);
+	    check.setVisible(true);
+	    check.setBorder(null);
+	    
+	    JButton bet = new JButton("BET");
+	    bet.setBounds(925, 450, 65, 20);
+	    bet.setVisible(true);
+	    bet.setBorder(null);
+	    
+	    JButton raise = new JButton("RAISE");
+	    raise.setBounds(925, 400, 65, 20);
+	    raise.setVisible(true);
+	    raise.setBorder(null);
+	    
+	    JButton fold = new JButton("FOLD");
+	    fold.setBounds(925, 550, 65, 20);
+	    fold.setVisible(true);
+	    fold.setBorder(null);
+	    
+	    JButton call = new JButton("CALL");
+	    call.setBounds(850, 500, 140, 20);
+	    call.setVisible(true);
+	    call.setBorder(null);
+	    
+	    JButton allin = new JButton("ALL IN");
+	    allin.setBounds(850, 350, 140, 20);
+	    allin.setVisible(true);
+	    allin.setBorder(null);
+	    
+	    frame.add(allin);
+	    frame.add(call);
+	    frame.add(fold);
+	    frame.add(raise);
+	    frame.add(bet);
+		frame.add(check);
+		frame.add(panel);
 		frame.setSize(1030,615);
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		
 	}
 		  		
 	  

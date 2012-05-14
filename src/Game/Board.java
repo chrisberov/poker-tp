@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -47,7 +49,6 @@ public class Board extends JPanel implements ActionListener {
 		time = new Timer(5, this);
 		time.start();
 		
-		  
 		
 		  
 	}

@@ -9,13 +9,16 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 
 public class MainClass {
@@ -94,12 +97,12 @@ public class MainClass {
 	
     
 	
-	public static void GameWindow() {
-		
-		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/poker-table.png").getImage());
+public static void GameWindow() {
+	
 		JFrame frame = new JFrame("Poker");
-			
+		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/poker-table.png").getImage());
 		
+	
 		JButton check = new JButton("CHECK");
 	    check.setBounds(850, 550, 65, 20);
 	    check.setVisible(true);
@@ -129,7 +132,10 @@ public class MainClass {
 	    allin.setBounds(850, 350, 140, 20);
 	    allin.setVisible(true);
 	    allin.setBorder(null);
+	 	
 	    
+		frame.setSize(1030, 615);
+	    frame.getContentPane();
 	    frame.add(allin);
 	    frame.add(call);
 	    frame.add(fold);
@@ -137,15 +143,77 @@ public class MainClass {
 	    frame.add(bet);
 		frame.add(check);
 		frame.add(panel);
-		frame.setSize(1030,615);
-		frame.setVisible(true);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-	}
-		  		
+		frame.add(new Board());
+		
+	    frame.setResizable(false);
+	    frame.setVisible(true);
+	    frame.setLocationRelativeTo(null);
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  
-
 	
+
+
+	check.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e){
+		Check();
+	}	
+});
+
+    call.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e){
+		Call();
+	}	
+});
+
+bet.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e){
+		Bet();
+	}	
+});
+
+raise.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e){
+		Raise();
+	}	
+});
+
+allin.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e){
+		AllIn();
+	}	
+});
+
+fold.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e){
+		Fold();
+	}	
+}); 
+
+}
+
+
+public static void Check() {
+	
+}
+
+public static void Call() {
+	
+}
+
+public static void Bet() {
+	
+}
+public static void Raise() {
+	
+}
+public static void AllIn() {
+	
+}
+public static void Fold() {
+	
+}
+
+
 }
 	
 	class ImagePanel extends JPanel {

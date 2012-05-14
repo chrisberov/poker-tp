@@ -17,10 +17,15 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+<<<<<<< HEAD
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
+=======
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 
 
 public class MainClass {
@@ -29,7 +34,11 @@ public class MainClass {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J",   // 0-12
 						"Q", "K", "A"};
 	
+<<<<<<< HEAD
 	 
+=======
+	int turn; 
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	
 	public static void main(String[] args) {		
 	/*	deck[0] = "C2";	    deck[1] = "D2";    deck[2] = "H2";    deck[3] = "S2";
@@ -54,7 +63,11 @@ public class MainClass {
 	
 	public static void GameMenu() {
 		
+<<<<<<< HEAD
 		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/menu-background.png").getImage());
+=======
+		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/menu-background.png").getImage());
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	    final JFrame frame = new JFrame("Poker");  
 	    
 	    JButton play = new JButton("PLAY");
@@ -94,6 +107,7 @@ public class MainClass {
 	    		GameWindow();
 	    	}
 	    });
+<<<<<<< HEAD
 	    
 	    options.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e){
@@ -127,6 +141,9 @@ public class MainClass {
 	    });
 	        
 	    
+=======
+	        
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	}
 	
     
@@ -134,9 +151,15 @@ public class MainClass {
 public static void GameWindow() {
 	
 		JFrame frame = new JFrame("Poker");
+<<<<<<< HEAD
 		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/poker-table.png").getImage());
 		
 			
+=======
+		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/poker-table.png").getImage());
+		
+	
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 		JButton check = new JButton("CHECK");
 	    check.setBounds(850, 550, 65, 20);
 	    check.setVisible(true);
@@ -167,6 +190,7 @@ public static void GameWindow() {
 	    allin.setVisible(true);
 	    allin.setBorder(null);
 	 	
+<<<<<<< HEAD
 	    JTextArea bett = new JTextArea("");
 	    bett.setBounds(850, 450, 65, 20);
 	    bett.setVisible(true);
@@ -184,6 +208,11 @@ public static void GameWindow() {
 	    frame.add(bett);
 	    frame.add(raiset);
 	    frame.add(dealert);
+=======
+	    
+		frame.setSize(1030, 615);
+	    frame.getContentPane();
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	    frame.add(allin);
 	    frame.add(call);
 	    frame.add(fold);
@@ -191,13 +220,18 @@ public static void GameWindow() {
 	    frame.add(bet);
 		frame.add(check);
 		frame.add(panel);
+<<<<<<< HEAD
 		//frame.add(new Board());
+=======
+		frame.add(new Board());
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 		
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  
+<<<<<<< HEAD
 	
 
 
@@ -262,6 +296,9 @@ public static void Fold() {
 }
 
 
+=======
+	}
+>>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 }
 	
 	class ImagePanel extends JPanel {

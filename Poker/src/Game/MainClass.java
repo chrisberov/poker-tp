@@ -3,13 +3,16 @@ package Game;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ButtonGroup;
@@ -17,8 +20,10 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 
 public class MainClass {
@@ -27,7 +32,8 @@ public class MainClass {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J",   // 0-12
 						"Q", "K", "A"};
 	
-	int turn; 
+	static int turn, p1money, p2money, p3money, p4money, p5money, potmoney, betmoney;
+	static ArrayList PlayersLeft = new ArrayList();
 	
 	public static void main(String[] args) {		
 	/*	deck[0] = "C2";	    deck[1] = "D2";    deck[2] = "H2";    deck[3] = "S2";
@@ -48,6 +54,15 @@ public class MainClass {
 		
 		GameMenu();
 		
+	}
+	
+	
+	public void SetPlayers() {
+		PlayersLeft.add(1);
+	    PlayersLeft.add(2);
+        PlayersLeft.add(3);
+        PlayersLeft.add(4);
+        PlayersLeft.add(5);
 	}
 	
 	public static void GameMenu() {
@@ -87,22 +102,114 @@ public class MainClass {
 	    frame.setLocationRelativeTo(null);
 
 	    play.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e){
-	    		frame.dispose();
-	    		GameWindow();
-	    	}
-	    });
+	        public void actionPerformed(ActionEvent e){
+	         frame.dispose();
+	         GameWindow();
+	        }
+	       });
+
+	       
+	       options.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e){
+	         JFrame frame = new JFrame("Options");
+	         
+	         JLabel cards = new JLabel("Cards:52");
+	         cards.setVisible(true);
+	         cards.setBorder(null);   
+	         cards.setBounds(0, 0, 100, 50);
+	         
+	         JLabel players = new JLabel("Players:5");
+	         players.setVisible(true);
+	         players.setBorder(null);   
+	         players.setBounds(0, 0, 100, 100);      
+	         
+	         
+	         JLabel money = new JLabel("Money:1000");
+	         money.setVisible(true);
+	         money.setBorder(null);   
+	         money.setBounds(0, 0, 100, 150);
+	         
+	         JLabel minbet = new JLabel("Minimal Bet:5");
+	         minbet.setVisible(true);
+	         minbet.setBorder(null);   
+	         minbet.setBounds(0, 0,  100, 200);
+	         
+	         frame.setSize(250,200);
+	         frame.add(cards);
+	         frame.add(minbet);
+	         frame.add(players);
+	         frame.add(money);       
+	         
+	         frame.setResizable(true);
+	         frame.setVisible(true);
+	         frame.setLocationRelativeTo(null);
+	        }
+	       });
+	       
+	       
+	       credits.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e){
+	         JFrame frame = new JFrame("Credits");
+	         JLabel cr = new JLabel("Game made by Chris Berov and Alexander Simonov");
+	         cr.setVisible(true);
+	         cr.setBorder(null);
+	         
+	         frame.add(cr);
+	         frame.setSize(300,100);
+	         frame.setResizable(false);
+	         frame.setVisible(true);
+	         frame.setLocationRelativeTo(null);
+	             
+	        }
+	       });
+	       
+	       
+	       
+	       exit.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e){
+	         frame.dispose();       
+	        }
+	       });
 	        
 	}
 	
-    
+	public static void Check() {
+		 turn++;
+	}
+	public static void Call() {
+		 turn++;
+	}
+	public static void Bet() {
+		 turn++;
+	}
+	public static void Raise() {
+		 turn++;
+	}
+	public static void AllIn() {
+		 turn++;
+	}
+	public static void Fold() {
+		 turn++;
+	}
+	
 	
 public static void GameWindow() {
 	
 		JFrame frame = new JFrame("Poker");
-		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/poker-table.png").getImage());
+		frame.setLayout(null);
 		
-	
+		JTextArea bett = new JTextArea("0");
+	    bett.setBounds(850, 450, 65, 20);
+	    bett.setVisible(true);
+	  
+	    JTextArea raiset = new JTextArea("0");
+	    raiset.setBounds(850, 400, 65, 20);
+	    raiset.setVisible(true);
+	     
+	    JTextArea dealert = new JTextArea("...");
+	    dealert.setBounds(850,50,150,200);
+	    dealert.setVisible(true);
+	    
 		JButton check = new JButton("CHECK");
 	    check.setBounds(850, 550, 65, 20);
 	    check.setVisible(true);
@@ -132,29 +239,90 @@ public static void GameWindow() {
 	    allin.setBounds(850, 350, 140, 20);
 	    allin.setVisible(true);
 	    allin.setBorder(null);
-	 	
-	    
+
 		frame.setSize(1030, 615);
-	    frame.getContentPane();
 	    frame.add(allin);
 	    frame.add(call);
 	    frame.add(fold);
 	    frame.add(raise);
 	    frame.add(bet);
 		frame.add(check);
-		frame.add(panel);
+		frame.add(bett);
+		frame.add(raiset);
+		frame.add(dealert);
+		frame.getContentPane();
 		frame.add(new Board());
-		
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  
-	}
-}
-	
-	class ImagePanel extends JPanel {
+	    
+	    
+	    while(PlayersLeft.size()>1) {
+	    	
+	    	if(p1money<5) {
+	    		PlayersLeft.remove(1);
+	    	}
+	    	
+	    	if(p2money<5) {
+	    		PlayersLeft.remove(2);
+	    	}
+	    	
+	    	if(p3money<5) {
+	    		PlayersLeft.remove(3);
+	    	}
+	    	
+	    	if(p4money<5) {
+	    		PlayersLeft.remove(4);
+	    	}
+	    	
+	    	if(p5money<5) {
+	    		PlayersLeft.remove(5);
+	    	}
+	    }
+	    
+	    check.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Check();
+	    	 } 
+	    	});
 
+	    	    call.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Call();
+	    	 } 
+	    	});
+
+	    	bet.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Bet();
+	    	 } 
+	    	});
+
+	    	raise.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Raise();
+	    	 } 
+	    	});
+
+	    	allin.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  AllIn();
+	    	 } 
+	    	});
+
+	    	fold.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Fold();
+	    	 } 
+	    	});
+	    
+	}
+
+}
+
+
+	class ImagePanel extends JPanel {
 		  private Image img;
 
 		  public ImagePanel(String img) {
@@ -176,5 +344,6 @@ public static void GameWindow() {
 			    g.drawImage(img, 0, 0, null);
 		  }
 	}
+
 		  
 

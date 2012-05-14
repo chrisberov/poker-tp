@@ -42,8 +42,9 @@ public class Board extends JPanel implements ActionListener {
 		  Player5Cards();
 		  RandomPot();
 		  RefreshDeck();
-		  
-		  img = i.getImage();
+ 
+		    
+		    img = i.getImage();
 		  
 		  time = new Timer(5, this);
 		  time.start();
@@ -122,15 +123,15 @@ public class Board extends JPanel implements ActionListener {
 		  int rrr = rand.nextInt(cards.size());
 		  ImageIcon cc = new ImageIcon(cards.get(rrr).toString());
 		  pot3 = cc.getImage();
-		  cards.remove(rr);
+		  cards.remove(rrr);
 		  int rrrr = rand.nextInt(cards.size());
 		  ImageIcon dd = new ImageIcon(cards.get(rrrr).toString());
 		  turn = dd.getImage();
-		  cards.remove(rr);
+		  cards.remove(rrrr);
 		  int rrrrr = rand.nextInt(cards.size());
 		  ImageIcon ee = new ImageIcon(cards.get(rrrrr).toString());
 		  river = ee.getImage();
-		  cards.remove(rr);
+		  cards.remove(rrrrr);
 	}
 	
 	public void RefreshDeck() {

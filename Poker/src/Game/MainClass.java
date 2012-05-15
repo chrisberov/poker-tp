@@ -3,13 +3,16 @@ package Game;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ButtonGroup;
@@ -17,15 +20,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-<<<<<<< HEAD
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
-=======
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
+import javax.swing.JTextField;
 
 
 public class MainClass {
@@ -34,11 +33,12 @@ public class MainClass {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J",   // 0-12
 						"Q", "K", "A"};
 	
-<<<<<<< HEAD
-	 
-=======
-	int turn; 
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
+	static int turn=1, p1money=1000, p2money=1000, p3money=1000, p4money=1000, p5money=1000, potmoney=0, p1bet=0, p2bet=0, p3bet=0, p4bet=0, p5bet=0;
+	static ArrayList PlayersLeft = new ArrayList();
+	static int[] money = {1000,1000,1000,1000,1000};
+	static int[] moneybet = {0,0,0,0,0};
+	static boolean rdy = true;
+	
 	
 	public static void main(String[] args) {		
 	/*	deck[0] = "C2";	    deck[1] = "D2";    deck[2] = "H2";    deck[3] = "S2";
@@ -61,13 +61,18 @@ public class MainClass {
 		
 	}
 	
+	
+	public void SetPlayers() {
+		PlayersLeft.add(1);
+	    PlayersLeft.add(2);
+        PlayersLeft.add(3);
+        PlayersLeft.add(4);
+        PlayersLeft.add(5);
+	}
+	
 	public static void GameMenu() {
 		
-<<<<<<< HEAD
-		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/menu-background.png").getImage());
-=======
 		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/menu-background.png").getImage());
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	    final JFrame frame = new JFrame("Poker");  
 	    
 	    JButton play = new JButton("PLAY");
@@ -96,76 +101,144 @@ public class MainClass {
 	    frame.add(credits);
 	    frame.add(exit);
 	    frame.setSize(1030, 615);
-	    frame.getContentPane().add(panel);
+	    frame.add(panel);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
 
 	    play.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e){
-	    		frame.dispose();
-	    		GameWindow();
-	    	}
-	    });
-<<<<<<< HEAD
-	    
-	    options.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e){
-	    			    	
-	    	}
-	    });
-	    
-	    
-	    credits.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e){
-	    		JFrame frame = new JFrame("Credits");
-	    		JLabel cr = new JLabel("Game made by Chris Berov and Alexander Simonov");
-	    		cr.setVisible(true);
-	    		cr.setBorder(null);
-	    		
-	    		frame.add(cr);
-	    		frame.setSize(300,100);
-	    		frame.setResizable(false);
-	    		frame.setVisible(true);
-	    		frame.setLocationRelativeTo(null);
-	    		    
-	    	}
-	    });
-	    
-	    
-	    
-	    exit.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e){
-	    		frame.dispose();	    		
-	    	}
-	    });
+	        public void actionPerformed(ActionEvent e){
+	         frame.dispose();
+	         GameWindow();
+	        }
+	       });
+
+	       
+	       options.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e){
+	         JFrame frame = new JFrame("Options");
+	         
+	         JLabel cards = new JLabel("Cards:52");
+	         cards.setVisible(true);
+	         cards.setBorder(null);   
+	         cards.setBounds(0, 0, 100, 50);
+	         
+	         JLabel players = new JLabel("Players:5");
+	         players.setVisible(true);
+	         players.setBorder(null);   
+	         players.setBounds(0, 0, 100, 100);      
+	         
+	         
+	         JLabel money = new JLabel("Money:1000");
+	         money.setVisible(true);
+	         money.setBorder(null);   
+	         money.setBounds(0, 0, 100, 150);
+	         
+	         JLabel minbet = new JLabel("Minimal Bet:5");
+	         minbet.setVisible(true);
+	         minbet.setBorder(null);   
+	         minbet.setBounds(0, 0,  100, 200);
+	         
+	         frame.setSize(250,200);
+	         frame.add(cards);
+	         frame.add(minbet);
+	         frame.add(players);
+	         frame.add(money);       
+	         
+	         frame.setResizable(true);
+	         frame.setVisible(true);
+	         frame.setLocationRelativeTo(null);
+	        }
+	       });
+	       
+	       
+	       credits.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e){
+	         JFrame frame = new JFrame("Credits");
+	         JLabel cr = new JLabel("Game made by Chris Berov and Alexander Simonov");
+	         cr.setVisible(true);
+	         cr.setBorder(null);
+	         
+	         frame.add(cr);
+	         frame.setSize(300,100);
+	         frame.setResizable(false);
+	         frame.setVisible(true);
+	         frame.setLocationRelativeTo(null);
+	             
+	        }
+	       });
+	       
+	       
+	       
+	       exit.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e){
+	         frame.dispose();       
+	        }
+	       });
 	        
-	    
-=======
-	        
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	}
 	
-    
+	public static void Check() {
+		turn++;
+		if (turn==5) turn = 1;
+				
+	}
+	public static void Call() {
+		turn++;
+		if (turn==5) turn = 1;
+		moneybet[turn] = moneybet[turn-1];
+		money[turn] = money[turn] - moneybet [turn];
+		 
+	}
+	public static void Bet() {
+		moneybet[turn] = 50;  
+		money[turn] -= moneybet[turn];		
+		turn++;
+		if (turn==5) turn = 1;
+	}
+	public static void Raise() {
+		moneybet[turn] += moneybet[turn-1];
+		money[turn] -= moneybet[turn];
+		turn++;
+		if (turn==5) turn = 1;
+	}
+	public static void AllIn() {
+		moneybet[turn] = money[turn];
+		money[turn] = 0;
+		turn++;
+		if (turn==5) turn = 1;
+	}
+	public static void Fold() {
+		
+		turn++;
+		if (turn==5) turn = 1;
+		
+	}
+	
 	
 public static void GameWindow() {
 	
 		JFrame frame = new JFrame("Poker");
-<<<<<<< HEAD
-		ImagePanel panel = new ImagePanel(new ImageIcon("D:/poker-tp/poker-table.png").getImage());
 		
-			
-=======
-		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/poker-table.png").getImage());
-		
-	
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
-		JButton check = new JButton("CHECK");
+		final JTextField bett = new JTextField("0");
+	    bett.setBounds(850, 450, 65, 20);
+	    bett.setVisible(true);	    
+	    
+	    final JTextField raiset = new JTextField("0");
+	    raiset.setBounds(850, 400, 65, 20);
+	    raiset.setVisible(true);
+	     
+	    final JTextField dealert = new JTextField("Dealer text in here...");
+	    dealert.setBounds(850,50,150,200);
+	    dealert.setVisible(true);
+	    dealert.setFocusable(false);
+	    
+		final JButton check = new JButton("CHECK");
 	    check.setBounds(850, 550, 65, 20);
 	    check.setVisible(true);
 	    check.setBorder(null);
 	    
-	    JButton bet = new JButton("BET");
+	    final JButton bet = new JButton("BET");
 	    bet.setBounds(925, 450, 65, 20);
 	    bet.setVisible(true);
 	    bet.setBorder(null);
@@ -189,120 +262,158 @@ public static void GameWindow() {
 	    allin.setBounds(850, 350, 140, 20);
 	    allin.setVisible(true);
 	    allin.setBorder(null);
-	 	
-<<<<<<< HEAD
-	    JTextArea bett = new JTextArea("");
-	    bett.setBounds(850, 450, 65, 20);
-	    bett.setVisible(true);
-	 
-	    JTextArea raiset = new JTextArea("");
-	    raiset.setBounds(850, 400, 65, 20);
-	    raiset.setVisible(true);
 	    
-	    JTextArea dealert = new JTextArea("");
-	    dealert.setBounds(810, 10, 200, 300);
-	    dealert.setVisible(true);	    
+	    JTextField p1moneyl = new JTextField();
+	    p1moneyl.setBounds(385, 430, 40, 20);
+	    p1moneyl.setVisible(true);
+	    p1moneyl.setFocusable(false);
+	    p1moneyl.setText(Integer.toString(money[0]));
 	    
-		frame.setSize(1030, 615);
-	    frame.getContentPane();
-	    frame.add(bett);
-	    frame.add(raiset);
-	    frame.add(dealert);
-=======
+	    JTextField p2moneyl = new JTextField();
+	    p2moneyl.setBounds(100, 400, 40, 20);
+	    p2moneyl.setVisible(true);
+	    p2moneyl.setFocusable(false);
+	    p2moneyl.setText(Integer.toString(money[1]));
 	    
-		frame.setSize(1030, 615);
-	    frame.getContentPane();
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
-	    frame.add(allin);
-	    frame.add(call);
-	    frame.add(fold);
-	    frame.add(raise);
-	    frame.add(bet);
-		frame.add(check);
-		frame.add(panel);
-<<<<<<< HEAD
-		//frame.add(new Board());
-=======
-		frame.add(new Board());
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
-		
+	    JTextField p3moneyl = new JTextField();
+	    p3moneyl.setBounds(100, 250, 40, 20);
+	    p3moneyl.setVisible(true);
+	    p3moneyl.setFocusable(false);
+	    p3moneyl.setText(Integer.toString(money[2]));
+	    
+	    JTextField p4moneyl = new JTextField();
+	    p4moneyl.setBounds(650, 250, 40, 20);
+	    p4moneyl.setVisible(true);
+	    p4moneyl.setFocusable(false);
+	    p4moneyl.setText(Integer.toString(money[3]));
+	    
+	    JTextField p5moneyl = new JTextField();
+	    p5moneyl.setBounds(650, 400, 40, 20);
+	    p5moneyl.setVisible(true);
+	    p5moneyl.setFocusable(false);
+	    p5moneyl.setText(Integer.toString(money[4]));
+	    
+	    Board board = new Board();
+	    board.setLayout(null);
+	    frame.setSize(1030, 615);
+	    board.setVisible(true);
+	    
+		board.add(allin);
+	    board.add(call);
+	    board.add(fold);
+	    board.add(raise);
+	    board.add(bet);
+	    board.add(check);
+		board.add(bett);
+		board.add(raiset);
+		board.add(dealert);
+		board.add(p1moneyl);
+		board.add(p2moneyl);
+		board.add(p3moneyl);
+		board.add(p4moneyl);
+		board.add(p5moneyl);
+		frame.add(board);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  
-<<<<<<< HEAD
-	
+	    
+	    
+	    
+	   
+	    while(PlayersLeft.size()>1) {
+	    	
+	    	if(p1money<5) {
+	    		PlayersLeft.remove(1);
+	    	}
+	    	
+	    	if(p2money<5) {
+	    		PlayersLeft.remove(2);
+	    	}
+	    	
+	    	if(p3money<5) {
+	    		PlayersLeft.remove(3);
+	    	}
+	    	
+	    	if(p4money<5) {
+	    		PlayersLeft.remove(4);
+	    	}
+	    	
+	    	if(p5money<5) {
+	    		PlayersLeft.remove(5);
+	    	}
+	    }
+	    
+	    check.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Check();
+	    	  
+	    	  if (moneybet[turn-1] > 0 )
+	    		check.setVisible(false);
+	    	 } 
+	    	});
 
+	    	    call.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Call();
+	    	 } 
+	    	});
 
-	check.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e){
-		Check();
-	}	
-});
+	    	bet.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Bet();
+	    	  
+	    	  if (moneybet[turn-1] > 0 )
+	    		bet.setVisible(false);  
+	    	 } 
+	    	});
 
-    call.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e){
-		Call();
-	}	
-});
+	    	raise.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Raise();
+	    	 } 
+	    	});
 
-bet.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e){
-		Bet();
-	}	
-});
+	    	allin.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  AllIn();
+	    	 } 
+	    	});
 
-raise.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e){
-		Raise();
-	}	
-});
-
-allin.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e){
-		AllIn();
-	}	
-});
-
-fold.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e){
-		Fold();
-	}	
-}); 
-
-}
-
-
-public static void Check() {
-	
-}
-
-public static void Call() {
-	
-}
-
-public static void Bet() {
-	
-}
-public static void Raise() {
-	
-}
-public static void AllIn() {
-	
-}
-public static void Fold() {
-	
-}
-
-
-=======
+	    	fold.addActionListener(new ActionListener() {
+	    	 public void actionPerformed(ActionEvent e){
+	    	  Fold();
+	    	 } 
+	    	});
+	    
+	    	bett.addActionListener(new ActionListener() {
+	    		public void actionPerformed(ActionEvent e){
+	    			String betting;
+	    			betting = bett.getText();
+	    			
+	    		}
+	    	});
+	    	
+	    	raiset.addActionListener(new ActionListener() {				
+				public void actionPerformed(ActionEvent e) {
+					String raising;
+					raising = raiset.getText();
+					
+				}
+			});
+	    	
+	    	dealert.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String dealerr = "I am the dealer!";
+					dealert.setText(dealerr);
+				}
+			});
 	}
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
-}
-	
-	class ImagePanel extends JPanel {
 
+}
+
+
+	class ImagePanel extends JPanel {
 		  private Image img;
 
 		  public ImagePanel(String img) {
@@ -324,5 +435,3 @@ public static void Fold() {
 			    g.drawImage(img, 0, 0, null);
 		  }
 	}
-		  
-

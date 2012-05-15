@@ -16,13 +16,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Board extends JPanel implements ActionListener {
-<<<<<<< HEAD
-	Image img, card1, card2;
-=======
+public class Board extends JPanel {
 	Image img, p1card1, p1card2, p2card1, p2card2, p3card1, p3card2, p4card1, p4card2, p5card1, p5card2,
 			pot1, pot2, pot3, turn, river, hidden;
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	Timer time;
 	static String deck[] = {"C2", "D2", "H2", "S2", "C3", "D3", "H3", "S3", "C4", "D4", "H4", "S4",
 		"C5", "D5", "H5", "S5", "C6", "D6", "H6", "S6", "C7", "D7", "H7", "S7",
@@ -34,97 +30,6 @@ public class Board extends JPanel implements ActionListener {
 	
 	public Board() {
 		  setFocusable(true);
-<<<<<<< HEAD
-		  ImageIcon i = new ImageIcon("D:/poker-tp/poker-table.png");
-		  
-		  ImageIcon backside = new ImageIcon("D:/poker-tp/backside.png");		  
-		  
-		  FillDeck();
-		  Random rand = new Random();
-		  int r = rand.nextInt(cards.size());
-		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
-		  card1 = aa.getImage();
-		  cards.remove(r);
-		  int rr = rand.nextInt(cards.size());
-		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
-		  card2 = bb.getImage();
-		  cards.remove(rr);
-		  FillDeck();
-		img = i.getImage();
-		
-		time = new Timer(5, this);
-		time.start();
-		
-		
-		  
-	}
-	
-	public void FillDeck() {
-		  cards.add("D:/poker-tp/2C.png");
-		  cards.add("D:/poker-tp/2D.png");
-		  cards.add("D:/poker-tp/2H.png");
-		  cards.add("D:/poker-tp/2S.png");
-		  
-		  cards.add("D:/poker-tp/3C.png");
-		  cards.add("D:/poker-tp/3D.png");
-		  cards.add("D:/poker-tp/3H.png");
-		  cards.add("D:/poker-tp/3S.png");
-		  
-		  cards.add("D:/poker-tp/4C.png");
-		  cards.add("D:/poker-tp/4D.png");
-		  cards.add("D:/poker-tp/4H.png");
-		  cards.add("D:/poker-tp/4S.png");
-		  
-		  cards.add("D:/poker-tp/5C.png");
-		  cards.add("D:/poker-tp/5D.png");
-		  cards.add("D:/poker-tp/5H.png");
-		  cards.add("D:/poker-tp/5S.png");
-		  
-		  cards.add("D:/poker-tp/6C.png");
-		  cards.add("D:/poker-tp/6D.png");
-		  cards.add("D:/poker-tp/6H.png");
-		  cards.add("D:/poker-tp/6S.png");
-		  
-		  cards.add("D:/poker-tp/7C.png");
-		  cards.add("D:/poker-tp/7D.png");
-		  cards.add("D:/poker-tp/7H.png");
-		  cards.add("D:/poker-tp/7S.png");
-		  
-		  cards.add("D:/poker-tp/8C.png");
-		  cards.add("D:/poker-tp/8D.png");
-		  cards.add("D:/poker-tp/8H.png");
-		  cards.add("D:/poker-tp/8S.png");
-		  
-		  cards.add("D:/poker-tp/9C.png");
-		  cards.add("D:/poker-tp/9D.png");
-		  cards.add("D:/poker-tp/9H.png");
-		  cards.add("D:/poker-tp/9S.png");
-		  
-		  cards.add("D:/poker-tp/10C.png");
-		  cards.add("D:/poker-tp/10D.png");
-		  cards.add("D:/poker-tp/10H.png");
-		  cards.add("D:/poker-tp/10S.png");
-		  
-		  cards.add("D:/poker-tp/JC.png");
-		  cards.add("D:/poker-tp/JD.png");
-		  cards.add("D:/poker-tp/JH.png");
-		  cards.add("D:/poker-tp/JS.png");
-		  
-		  cards.add("D:/poker-tp/QC.png");
-		  cards.add("D:/poker-tp/QD.png");
-		  cards.add("D:/poker-tp/QH.png");
-		  cards.add("D:/poker-tp/QS.png");
-		  
-		  cards.add("D:/poker-tp/KC.png");
-		  cards.add("D:/poker-tp/KD.png");
-		  cards.add("D:/poker-tp/KH.png");
-		  cards.add("D:/poker-tp/KS.png");
-		  
-		  cards.add("D:/poker-tp/AC.png");
-		  cards.add("D:/poker-tp/AD.png");
-		  cards.add("D:/poker-tp/AH.png");
-		  cards.add("D:/poker-tp/AS.png");
-=======
 		  ImageIcon i = new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/poker-table.png");
 		  
 		  Image backside = new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/backside.png").getImage();		  
@@ -137,11 +42,10 @@ public class Board extends JPanel implements ActionListener {
 		  Player5Cards();
 		  RandomPot();
 		  RefreshDeck();
+ 
+		    
+		    img = i.getImage();
 		  
-		  img = i.getImage();
-		  
-		  time = new Timer(5, this);
-		  time.start();
 		}
 	
 	public void Player1Cards() {
@@ -217,15 +121,15 @@ public class Board extends JPanel implements ActionListener {
 		  int rrr = rand.nextInt(cards.size());
 		  ImageIcon cc = new ImageIcon(cards.get(rrr).toString());
 		  pot3 = cc.getImage();
-		  cards.remove(rr);
+		  cards.remove(rrr);
 		  int rrrr = rand.nextInt(cards.size());
 		  ImageIcon dd = new ImageIcon(cards.get(rrrr).toString());
 		  turn = dd.getImage();
-		  cards.remove(rr);
+		  cards.remove(rrrr);
 		  int rrrrr = rand.nextInt(cards.size());
 		  ImageIcon ee = new ImageIcon(cards.get(rrrrr).toString());
 		  river = ee.getImage();
-		  cards.remove(rr);
+		  cards.remove(rrrrr);
 	}
 	
 	public void RefreshDeck() {
@@ -294,29 +198,13 @@ public class Board extends JPanel implements ActionListener {
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AD.png");
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AH.png");
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AS.png");
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 	}
 	
-	
-	public void actionPerformed(ActionEvent e) {
-		repaint();
-	}
-	
-	public void paint(Graphics g) {
-		super.paint(g);
+	@Override
+	public void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		
+		super.paintComponent(g);
 		g2d.drawImage(img, 0, 0, null);
-<<<<<<< HEAD
-		g2d.drawImage(card1,340,350,null);
-		g2d.drawImage(card2,400,350,null);
-	}
-	
-	
-	public Timer getTime() {
-		return time;
-	}
-=======
 		g2d.drawImage(p1card1,340,350,null);
 		g2d.drawImage(p1card2,400,350,null);
 		g2d.drawImage(hidden,  50,300,null);
@@ -332,9 +220,7 @@ public class Board extends JPanel implements ActionListener {
 		g2d.drawImage(pot3,   360,220,null);
 		g2d.drawImage(turn,   430,220,null);
 		g2d.drawImage(river,  500,220,null);
-		
 	}
 	
 	
->>>>>>> 2387027d959e3204b9a5ff170da2a98ea7d487f5
 }

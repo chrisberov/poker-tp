@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Board extends JPanel implements ActionListener {
+public class Board extends JPanel {
 	Image img, p1card1, p1card2, p2card1, p2card2, p3card1, p3card2, p4card1, p4card2, p5card1, p5card2,
 			pot1, pot2, pot3, turn, river, hidden;
 	Timer time;
@@ -46,20 +46,21 @@ public class Board extends JPanel implements ActionListener {
 		    
 		    img = i.getImage();
 		  
-		  time = new Timer(5, this);
-		  time.start();
 		}
 	
 	public void Player1Cards() {
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p1card1 = aa.getImage();
+		  
 		  cards.remove(r);
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p1card2 = bb.getImage();
 		  cards.remove(rr);
+		  
 	}
 	
 	public void Player2Cards() {
@@ -202,15 +203,10 @@ public class Board extends JPanel implements ActionListener {
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AS.png");
 	}
 	
-	
-	public void actionPerformed(ActionEvent e) {
-		repaint();
-	}
-	
-	public void paint(Graphics g) {
-		super.paint(g);
+	@Override
+	public void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		
+		super.paintComponent(g);
 		g2d.drawImage(img, 0, 0, null);
 		g2d.drawImage(p1card1,340,350,null);
 		g2d.drawImage(p1card2,400,350,null);
@@ -227,7 +223,6 @@ public class Board extends JPanel implements ActionListener {
 		g2d.drawImage(pot3,   360,220,null);
 		g2d.drawImage(turn,   430,220,null);
 		g2d.drawImage(river,  500,220,null);
-		
 	}
 	
 	

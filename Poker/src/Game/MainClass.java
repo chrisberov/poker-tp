@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 
 public class MainClass {
@@ -96,7 +97,7 @@ public class MainClass {
 	    frame.add(credits);
 	    frame.add(exit);
 	    frame.setSize(1030, 615);
-	    frame.getContentPane().add(panel);
+	    frame.add(panel);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
@@ -196,19 +197,19 @@ public class MainClass {
 public static void GameWindow() {
 	
 		JFrame frame = new JFrame("Poker");
-		frame.setLayout(null);
 		
-		JTextArea bett = new JTextArea("0");
+		final JTextField bett = new JTextField("0");
 	    bett.setBounds(850, 450, 65, 20);
-	    bett.setVisible(true);
-	  
-	    JTextArea raiset = new JTextArea("0");
+	    bett.setVisible(true);	    
+	    
+	    final JTextField raiset = new JTextField("0");
 	    raiset.setBounds(850, 400, 65, 20);
 	    raiset.setVisible(true);
 	     
-	    JTextArea dealert = new JTextArea("...");
+	    final JTextField dealert = new JTextField("Dealer text in here...");
 	    dealert.setBounds(850,50,150,200);
 	    dealert.setVisible(true);
+	    dealert.setFocusable(false);
 	    
 		JButton check = new JButton("CHECK");
 	    check.setBounds(850, 550, 65, 20);
@@ -239,19 +240,22 @@ public static void GameWindow() {
 	    allin.setBounds(850, 350, 140, 20);
 	    allin.setVisible(true);
 	    allin.setBorder(null);
-
-		frame.setSize(1030, 615);
-	    frame.add(allin);
-	    frame.add(call);
-	    frame.add(fold);
-	    frame.add(raise);
-	    frame.add(bet);
-		frame.add(check);
-		frame.add(bett);
-		frame.add(raiset);
-		frame.add(dealert);
-		frame.getContentPane();
-		frame.add(new Board());
+	    
+	    Board board = new Board();
+	    board.setLayout(null);
+	    frame.setSize(1030, 615);
+	    board.setVisible(true);
+	    
+		board.add(allin);
+	    board.add(call);
+	    board.add(fold);
+	    board.add(raise);
+	    board.add(bet);
+	    board.add(check);
+		board.add(bett);
+		board.add(raiset);
+		board.add(dealert);
+		frame.add(board);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
@@ -317,6 +321,28 @@ public static void GameWindow() {
 	    	 } 
 	    	});
 	    
+	    	bett.addActionListener(new ActionListener() {
+	    		public void actionPerformed(ActionEvent e){
+	    			String betting;
+	    			betting = bett.getText();
+	    			
+	    		}
+	    	});
+	    	
+	    	raiset.addActionListener(new ActionListener() {				
+				public void actionPerformed(ActionEvent e) {
+					String raising;
+					raising = raiset.getText();
+					
+				}
+			});
+	    	
+	    	dealert.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String dealerr = "I am the dealer!";
+					dealert.setText(dealerr);
+				}
+			});
 	}
 
 }

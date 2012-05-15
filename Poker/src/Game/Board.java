@@ -49,15 +49,18 @@ public class Board extends JPanel {
 		}
 	
 	public void Player1Cards() {
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p1card1 = aa.getImage();
+		  
 		  cards.remove(r);
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p1card2 = bb.getImage();
 		  cards.remove(rr);
+		  
 	}
 	
 	public void Player2Cards() {

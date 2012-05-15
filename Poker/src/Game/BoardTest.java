@@ -19,7 +19,11 @@ public class BoardTest {
 		Board board = new Board();
 		board.RefreshDeck();
 		board.Player1Cards();
+<<<<<<< HEAD
       //  assertEquals(p1card1, aa.getImage());		
+=======
+		assertEquals();
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	}
 	
 }

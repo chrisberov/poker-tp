@@ -33,12 +33,17 @@ public class MainClass {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J",   // 0-12
 						"Q", "K", "A"};
 	
+<<<<<<< HEAD
 	static int turn=1, p1money=1000, p2money=1000, p3money=1000, p4money=1000, p5money=1000, potmoney=0, p1bet=0, p2bet=0, p3bet=0, p4bet=0, p5bet=0;
 	static ArrayList PlayersLeft = new ArrayList();
 	static int[] money = {1000,1000,1000,1000,1000};
 	static int[] moneybet = {0,0,0,0,0};
 	static boolean rdy = true;
 	
+=======
+	static int turn, p1money, p2money, p3money, p4money, p5money, potmoney, betmoney;
+	static ArrayList PlayersLeft = new ArrayList();
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	
 	public static void main(String[] args) {		
 	/*	deck[0] = "C2";	    deck[1] = "D2";    deck[2] = "H2";    deck[3] = "S2";
@@ -179,6 +184,7 @@ public class MainClass {
 	}
 	
 	public static void Check() {
+<<<<<<< HEAD
 		turn++;
 		if (turn==5) turn = 1;
 				
@@ -213,6 +219,24 @@ public class MainClass {
 		turn++;
 		if (turn==5) turn = 1;
 		
+=======
+		 turn++;
+	}
+	public static void Call() {
+		 turn++;
+	}
+	public static void Bet() {
+		 turn++;
+	}
+	public static void Raise() {
+		 turn++;
+	}
+	public static void AllIn() {
+		 turn++;
+	}
+	public static void Fold() {
+		 turn++;
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	}
 	
 	
@@ -233,7 +257,11 @@ public static void GameWindow() {
 	    dealert.setVisible(true);
 	    dealert.setFocusable(false);
 	    
+<<<<<<< HEAD
 		final JButton check = new JButton("CHECK");
+=======
+		JButton check = new JButton("CHECK");
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	    check.setBounds(850, 550, 65, 20);
 	    check.setVisible(true);
 	    check.setBorder(null);
@@ -262,6 +290,7 @@ public static void GameWindow() {
 	    allin.setBounds(850, 350, 140, 20);
 	    allin.setVisible(true);
 	    allin.setBorder(null);
+<<<<<<< HEAD
 	    
 	    JTextField p1moneyl = new JTextField();
 	    p1moneyl.setBounds(385, 430, 40, 20);
@@ -298,6 +327,14 @@ public static void GameWindow() {
 	    frame.setSize(1030, 615);
 	    board.setVisible(true);
 	    
+=======
+	    
+	    Board board = new Board();
+	    board.setLayout(null);
+	    frame.setSize(1030, 615);
+	    board.setVisible(true);
+	    
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 		board.add(allin);
 	    board.add(call);
 	    board.add(fold);
@@ -307,11 +344,14 @@ public static void GameWindow() {
 		board.add(bett);
 		board.add(raiset);
 		board.add(dealert);
+<<<<<<< HEAD
 		board.add(p1moneyl);
 		board.add(p2moneyl);
 		board.add(p3moneyl);
 		board.add(p4moneyl);
 		board.add(p5moneyl);
+=======
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 		frame.add(board);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
@@ -319,8 +359,11 @@ public static void GameWindow() {
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    
+<<<<<<< HEAD
 	    
 	   
+=======
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	    while(PlayersLeft.size()>1) {
 	    	
 	    	if(p1money<5) {
@@ -347,9 +390,12 @@ public static void GameWindow() {
 	    check.addActionListener(new ActionListener() {
 	    	 public void actionPerformed(ActionEvent e){
 	    	  Check();
+<<<<<<< HEAD
 	    	  
 	    	  if (moneybet[turn-1] > 0 )
 	    		check.setVisible(false);
+=======
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	    	 } 
 	    	});
 
@@ -362,9 +408,12 @@ public static void GameWindow() {
 	    	bet.addActionListener(new ActionListener() {
 	    	 public void actionPerformed(ActionEvent e){
 	    	  Bet();
+<<<<<<< HEAD
 	    	  
 	    	  if (moneybet[turn-1] > 0 )
 	    		bet.setVisible(false);  
+=======
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef
 	    	 } 
 	    	});
 
@@ -434,4 +483,11 @@ public static void GameWindow() {
 			  	
 			    g.drawImage(img, 0, 0, null);
 		  }
+<<<<<<< HEAD
 	}
+=======
+	}
+
+		  
+
+>>>>>>> 112cc1661222b1f99fc2ce11f433f79d0998bdef

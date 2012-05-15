@@ -48,94 +48,178 @@ public class Board extends JPanel {
 		  
 		}
 	
-	public void Player1Cards() {
+	public Image[] Player1Cards() {
+		  Image img0=null,img1=null,img2=null,img3=null;
+		  Image[] image = {img0,img1,img2,img3};
 		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p1card1 = aa.getImage();
 		  
+		  image[0] = p1card1;
+		  image[1] = aa.getImage();
 		  cards.remove(r);
+		  
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p1card2 = bb.getImage();
+		  
+		  image[2] = p1card2;
+		  image[3] = bb.getImage();
 		  cards.remove(rr);
 		  
+		  return image;
 	}
 	
-	public void Player2Cards() {
+	public Image[] Player2Cards() {
+		  Image img0=null,img1=null,img2=null,img3=null;
+		  Image[] image = {img0,img1,img2,img3};
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p2card1 = aa.getImage();
+		  
+		  image[0] = p2card1;
+		  image[1] = aa.getImage();
 		  cards.remove(r);
+		  
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p2card2 = bb.getImage();
+		  
+		  image[2] = p2card2;
+		  image[3] = bb.getImage();
 		  cards.remove(rr);
+		  
+		  return image;
 	}
 	
-	public void Player3Cards() {
+	public Image[] Player3Cards() {
+		  Image img0=null,img1=null,img2=null,img3=null;
+		  Image[] image = {img0,img1,img2,img3};
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p3card1 = aa.getImage();
+		  
+		  image[0] = p3card1;
+		  image[1] = aa.getImage();
 		  cards.remove(r);
+		  
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p3card2 = bb.getImage();
+		  
+		  image[2] = p3card2;
+		  image[3] = bb.getImage();
 		  cards.remove(rr);
+		  
+		  return image;
 	}
 	
-	public void Player4Cards() {
+	public Image[] Player4Cards() {
+		  Image img0=null,img1=null,img2=null,img3=null;
+		  Image[] image = {img0,img1,img2,img3};
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p4card1 = aa.getImage();
+		  
+		  image[0] = p4card1;
+		  image[1] = aa.getImage();
 		  cards.remove(r);
+		  
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p4card2 = bb.getImage();
+		  
+		  image[2] = p4card2;
+		  image[3] = bb.getImage();
 		  cards.remove(rr);
+		  
+		  return image;
 	}
 	
-	public void Player5Cards() {
+	public Image[] Player5Cards() {
+		  Image img0=null,img1=null,img2=null,img3=null;
+		  Image[] image = {img0,img1,img2,img3};
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  p5card1 = aa.getImage();
+		  
+		  image[0] = p5card1;
+		  image[1] = aa.getImage();
 		  cards.remove(r);
+		  
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  p5card2 = bb.getImage();
+		  
+		  image[2] = p5card2;
+		  image[3] = bb.getImage();
 		  cards.remove(rr);
+		  
+		  return image;
 	}
 	
-	public void RandomPot() {
+	public Image[] RandomPot() {
+		  Image img0=null, img1=null, img2=null, img3=null, img4=null, img5=null,
+				  img6=null, img7=null, img8=null, img9=null;
+		  Image[] image = {img0,img1,img2,img3,img4,img5,img6,img7,img8,img9};
+		  
 		  Random rand = new Random();
 		  int r = rand.nextInt(cards.size());
 		  ImageIcon aa = new ImageIcon(cards.get(r).toString());
 		  pot1 = aa.getImage();
+		  
+		  image[0] = pot1;
+		  image[1] = aa.getImage();
 		  cards.remove(r);
+		  
 		  int rr = rand.nextInt(cards.size());
 		  ImageIcon bb = new ImageIcon(cards.get(rr).toString());
 		  pot2 = bb.getImage();
+		  
+		  image[2] = pot2;
+		  image[3] = bb.getImage();
 		  cards.remove(rr);
+		  
 		  int rrr = rand.nextInt(cards.size());
 		  ImageIcon cc = new ImageIcon(cards.get(rrr).toString());
 		  pot3 = cc.getImage();
+		  
+		  image[4] = pot3;
+		  image[5] = cc.getImage();
 		  cards.remove(rrr);
+		  
 		  int rrrr = rand.nextInt(cards.size());
 		  ImageIcon dd = new ImageIcon(cards.get(rrrr).toString());
 		  turn = dd.getImage();
+		  
+		  image[6] = turn;
+		  image[7] = dd.getImage();
 		  cards.remove(rrrr);
+		  
 		  int rrrrr = rand.nextInt(cards.size());
 		  ImageIcon ee = new ImageIcon(cards.get(rrrrr).toString());
 		  river = ee.getImage();
+		  
+		  image[8] = river;
+		  image[9] = ee.getImage();
 		  cards.remove(rrrrr);
+		  
+		  return image;
 	}
 	
-	public void RefreshDeck() {
+	public boolean RefreshDeck() {
+		
+		  cards.clear();
 		  
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/2C.png");
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/2D.png");
@@ -201,6 +285,8 @@ public class Board extends JPanel {
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AD.png");
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AH.png");
 		  cards.add("C:/Stuff/Programming/stuff/poker-tp/AS.png");
+		  
+		  return cards.isEmpty();
 	}
 	
 	@Override

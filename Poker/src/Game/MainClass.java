@@ -59,6 +59,7 @@ public class MainClass {
 	
 	
 	public void SetPlayers() {
+		PlayersLeft.clear();
 		PlayersLeft.add(1);
 	    PlayersLeft.add(2);
         PlayersLeft.add(3);
@@ -66,7 +67,7 @@ public class MainClass {
         PlayersLeft.add(5);
 	}
 	
-	public static void GameMenu() {
+	public static Component[] GameMenu() {
 		
 		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/menu-background.png").getImage());
 	    final JFrame frame = new JFrame("Poker");  
@@ -101,7 +102,7 @@ public class MainClass {
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
-
+	    
 	    play.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e){
 	         frame.dispose();
@@ -172,6 +173,7 @@ public class MainClass {
 	        }
 	       });
 	        
+	       return frame.getComponents();
 	}
 	
 	public static void Check() {

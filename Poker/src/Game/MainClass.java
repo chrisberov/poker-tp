@@ -33,6 +33,7 @@ public class MainClass {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J",   // 0-12
 						"Q", "K", "A"};
 	
+<<<<<<< HEAD
 	static int turn=0, p1money=1000, p2money=1000, p3money=1000, p4money=1000, p5money=1000, open=0, wp=0, cr=0;
 	static ArrayList PlayersLeft = new ArrayList();
 	static int[] money = {1000,1000,1000,1000,1000};
@@ -41,6 +42,10 @@ public class MainClass {
 	
 	
 	
+=======
+	static int turn, p1money, p2money, p3money, p4money, p5money, potmoney, betmoney;
+	static ArrayList PlayersLeft = new ArrayList();
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	
 	public static void main(String[] args) {		
 	/*	deck[0] = "C2";	    deck[1] = "D2";    deck[2] = "H2";    deck[3] = "S2";
@@ -76,6 +81,7 @@ public class MainClass {
 	}
 	
 	public void SetPlayers() {
+		PlayersLeft.clear();
 		PlayersLeft.add(1);
 	    PlayersLeft.add(2);
         PlayersLeft.add(3);
@@ -83,7 +89,7 @@ public class MainClass {
         PlayersLeft.add(5);
 	}
 	
-	public static void GameMenu() {
+	public static Component[] GameMenu() {
 		
 		ImagePanel panel = new ImagePanel(new ImageIcon("C:/Stuff/Programming/stuff/poker-tp/menu-background.png").getImage());
 	    final JFrame frame = new JFrame("Poker");  
@@ -118,7 +124,7 @@ public class MainClass {
 	    frame.setResizable(false);
 	    frame.setVisible(true);
 	    frame.setLocationRelativeTo(null);
-
+	    
 	    play.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e){
 	         frame.dispose();
@@ -189,9 +195,11 @@ public class MainClass {
 	        }
 	       });
 	        
+	       return frame.getComponents();
 	}
 	
 	public static void Check() {
+<<<<<<< HEAD
 		rdy=true;
 		turn++;
 		if (turn==5 && rdy == true) { 
@@ -265,6 +273,24 @@ public class MainClass {
 		if (open == 3) River();
 		if (open == 4) { money[turn] += wp;  open = 0; rdy = false; turn = 0; wp=0; NewDeal();  */
 		
+=======
+		 turn++;
+	}
+	public static void Call() {
+		 turn++;
+	}
+	public static void Bet() {
+		 turn++;
+	}
+	public static void Raise() {
+		 turn++;
+	}
+	public static void AllIn() {
+		 turn++;
+	}
+	public static void Fold() {
+		 turn++;
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	}
 	
 	
@@ -285,12 +311,16 @@ public static void GameWindow() {
 	    dealert.setVisible(true);
 	    dealert.setFocusable(false);
 	    
+<<<<<<< HEAD
 		final JButton check = new JButton("CHECK");
+=======
+		JButton check = new JButton("CHECK");
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	    check.setBounds(850, 550, 65, 20);
 	    check.setVisible(true);
 	    check.setBorder(null);
 	    
-	    final JButton bet = new JButton("BET");
+	    JButton bet = new JButton("BET");
 	    bet.setBounds(925, 450, 65, 20);
 	    bet.setVisible(true);
 	    bet.setBorder(null);
@@ -315,6 +345,7 @@ public static void GameWindow() {
 	    allin.setVisible(true);
 	    allin.setBorder(null);
 	    
+<<<<<<< HEAD
 	    JTextField p1moneyl = new JTextField();
 	    p1moneyl.setBounds(385, 430, 40, 20);
 	    p1moneyl.setVisible(true);
@@ -345,6 +376,8 @@ public static void GameWindow() {
 	    p5moneyl.setFocusable(false);
 	    p5moneyl.setText(Integer.toString(money[4]));
 	    
+=======
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	    Board board = new Board();
 	    board.setLayout(null);
 	    frame.setSize(1030, 615);
@@ -359,11 +392,14 @@ public static void GameWindow() {
 		board.add(bett);
 		board.add(raiset);
 		board.add(dealert);
+<<<<<<< HEAD
 		board.add(p1moneyl);
 		board.add(p2moneyl);
 		board.add(p3moneyl);
 		board.add(p4moneyl);
 		board.add(p5moneyl);
+=======
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 		frame.add(board);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
@@ -371,8 +407,11 @@ public static void GameWindow() {
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    
+<<<<<<< HEAD
 	    
 	   
+=======
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	    while(PlayersLeft.size()>1) {
 	    	
 	    	if(p1money<5) {
@@ -400,7 +439,10 @@ public static void GameWindow() {
 	    check.addActionListener(new ActionListener() {
 	    	 public void actionPerformed(ActionEvent e){
 	    	  Check();
+<<<<<<< HEAD
 	    	 
+=======
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	    	 } 
 	    	});
 
@@ -413,7 +455,10 @@ public static void GameWindow() {
 	    	bet.addActionListener(new ActionListener() {
 	    	 public void actionPerformed(ActionEvent e){
 	    	  Bet();
+<<<<<<< HEAD
 	    	   
+=======
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
 	    	 } 
 	    	});
 
@@ -483,4 +528,11 @@ public static void GameWindow() {
 			  	
 			    g.drawImage(img, 0, 0, null);
 		  }
+<<<<<<< HEAD
 	}
+=======
+	}
+
+		  
+
+>>>>>>> 8539755c8cb2057be61e2fa26e94d97298a887bd
